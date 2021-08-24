@@ -1,7 +1,6 @@
 version: "2.1"
 orbs:
   browser-tools: circleci/browser-tools@1.1.3
-  cypress: cypress-io/cypress@1
 
 commands:
   influxdb-onboarding:
@@ -46,13 +45,6 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+(\.[0-9]+)*$/
-
-build:
-    jobs:
-      - cypress/run:
-          post-steps:
-            - store_artifacts:
-                path: ui/cypress/screenshot
 
 jobs:
   build:
